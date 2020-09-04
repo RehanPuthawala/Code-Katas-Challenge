@@ -22,7 +22,7 @@
  ---------   ------------------
  5 1 3 4 1   250:  50 (for the 5) + 2 * 100 (for the 1s)
  1 1 1 3 1   1100: 1000 (for three 1s) + 100 (for the other 1)
- 2 4 4 5 4   450:  400 (for three 4s) + 50 (for the 5)*/
+ 2, 4, 4, 5, 4   450:  400 (for three 4s) + 50 (for the 5)*/
 
 function score(dice) {
   let points = 0;
@@ -30,30 +30,37 @@ function score(dice) {
 
   for (let i = 0; i < dice.length; i++) {
     let repeating = 1;
-    for (let j = i + 1; j < dice.length; j++) {
-      if (dice[i] === dice[j]) {
-        repeating++;
-        repeatedNumberArr.push(dice[i]);
-        // console.log(repeatedNumberArr);
+    if (!repeatedNumberArr.includes(dice[i])) {
+      for (let j = i + 1; j < dice.length; j++) {
+        if (dice[i] === dice[j]) {
+          repeating++;
+          repeatedNumberArr.push(dice[i]);
+        }
       }
-    }
 
-    if (repeating >= 3) {
-      points += dice[i] * 100;
-      repeating -= 3;
-    } else {
-      if (dice[i] === 1) {
-        points += repeating * 100;
-      } else if (dice[i] === 5) {
-        points += repeating * 50;
-      } else {
-        // console.log("Other number");
+      if (repeating >= 3) {
+        if (dice[i] === 1) {
+          points += dice[i] * 1000;
+          repeating -= 3;
+        } else {
+          points += dice[i] * 100;
+          repeating -= 3;
+        }
+      }
+
+      if (repeating <= 2) {
+        if (dice[i] === 1) {
+          points += repeating * 100;
+        } else if (dice[i] === 5) {
+          points += repeating * 50;
+        } else {
+          points += 0;
+        }
       }
     }
   }
 
-  // console.log(repeatedNumberArr);
-  console.log(points);
+  return points;
 }
 
-score([1, 1, 1, 3, 1]);
+console.log(score([2, 4, 4, 5, 4]));
