@@ -36,18 +36,74 @@ false otherwise. The cells of the sudoku board may also contain 0's, which will 
 
 //* Solutions
 
-function validSolution(board) {}
+// function validSolution(board) {
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[i].length; j++) {
+//       for (let k = j + 1; k < board[i].length; k++) {
+//         if (board[i][j] !== 0) {
+//           if (board[i][j] === board[i][k]) {
+//             return false;
+//           } else {
+//             continue;
+//           }
+//         }
 
+//         if (board[i + 1]) {
+//           if (board[i][j] === board[i + 1][j]) {
+//             return false;
+//           } else {
+//             continue;
+//           }
+//         } else {
+//           return false;
+//         }
+//       }
+//     }
+//   }
+
+//   return true;
+// }
+
+function validSolution(board) {
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      for (let k = j + 1; k < board[i].length; k++) {
+        if (board[i][j] === board[i][k]) {
+          return false;
+        } else {
+          continue;
+        }
+      }
+      console.log(board[i]);
+    }
+  }
+
+  return true;
+}
 console.log(
   validSolution([
-    [5, 3, 4, 6, 7, 8, 9, 1, 2],
-    [6, 7, 2, 1, 9, 5, 3, 4, 8],
-    [1, 9, 8, 3, 4, 2, 5, 6, 7],
-    [8, 5, 9, 7, 6, 1, 4, 2, 3],
-    [4, 2, 6, 8, 5, 3, 7, 9, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
-    [9, 6, 1, 5, 3, 7, 2, 8, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 4, 5, 2, 8, 6, 1, 7, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
   ])
 );
+
+// console.log(
+//   validSolution([
+//     [5, 3, 4, 6, 7, 8, 9, 1, 2],
+//     [6, 7, 2, 1, 9, 5, 3, 4, 8],
+//     [1, 9, 8, 3, 4, 2, 5, 6, 7],
+//     [8, 5, 9, 7, 6, 1, 4, 2, 3],
+//     [4, 2, 6, 8, 5, 3, 7, 9, 1],
+//     [7, 1, 3, 9, 2, 4, 8, 5, 6],
+//     [9, 6, 1, 5, 3, 7, 2, 8, 4],
+//     [2, 8, 7, 4, 1, 9, 6, 3, 5],
+//     [3, 4, 5, 2, 8, 6, 1, 7, 9],
+//   ])
+// );
