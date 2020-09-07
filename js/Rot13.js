@@ -52,7 +52,7 @@ console.log(rot13("10+2 is tweleve."));
 
 //* Best Practices *//
 
-//* Code 1*//
+//? Code 1*//
 var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXWZ";
 var cipher = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXWZABCDEFGHIJKLM";
 
@@ -71,7 +71,7 @@ function rot13(message) {
     .join("");
 }
 
-//* Code 2 *//
+// Code 2 *//
 var codeA = "A".charCodeAt(0),
   codeZ = "Z".charCodeAt(0),
   codea = "a".charCodeAt(0),
